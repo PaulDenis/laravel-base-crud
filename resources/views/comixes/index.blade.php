@@ -9,6 +9,9 @@
                     <h3>{{ $item->title }}</h3>
                     <h4>Serie: {{ $item->series }}</h4>
                     <h4>Cost: {{ $item->price }}&euro;</h4>
+                    <a href="{{ route("comixes.show", $item->id) }}" class="btn btn-success">
+                        SHOW
+                    </a>
                 </div>
             @endforeach
         </div>

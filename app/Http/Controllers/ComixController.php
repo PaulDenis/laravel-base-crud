@@ -26,7 +26,7 @@ class ComixController extends Controller
      */
     public function create()
     {
-        //
+        return view('comixes.create');
     }
 
     /**
@@ -46,9 +46,9 @@ class ComixController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comix $comix)
     {
-        
+        return view("comixes.show", compact('comix'));
     }
 
     /**
