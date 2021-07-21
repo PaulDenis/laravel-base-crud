@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comix;
 use Illuminate\Http\Request;
 
 class ComixController extends Controller
@@ -13,7 +14,9 @@ class ComixController extends Controller
      */
     public function index()
     {
-        return view('comixes.index');
+        $comixes = Comix::orderBy('id', 'DESC')->paginate(8);
+
+        return view("comixes.index", compact('comixes'));
     }
 
     /**

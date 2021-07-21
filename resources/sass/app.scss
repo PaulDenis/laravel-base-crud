@@ -1,1 +1,16 @@
 //
+.my_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.comics {
+    width: 25%;
+    text-align: center;
+    img {
+        width: 80%;
+    }
+    h3 {
+        font-size: 22px;
+    }
+}
