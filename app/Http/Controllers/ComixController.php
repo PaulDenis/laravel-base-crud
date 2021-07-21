@@ -37,7 +37,18 @@ class ComixController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $comic = new Comix();
+
+        $comic->fill($data);
+
+        $comic->save();
+
+        return redirect()
+            ->route('comixes.show', $comic->id)
+            ->with('message', "Comic added succesfully");
+
     }
 
     /**

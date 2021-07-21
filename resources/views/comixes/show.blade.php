@@ -1,6 +1,12 @@
 @extends('layout.main')
 
 @section('content')
+
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @endif
     <div class="show">
         <img src="{{ $comix->thumb }}" alt="Comic thumb">
         <div class="text">
