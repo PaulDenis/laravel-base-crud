@@ -68,9 +68,9 @@ class ComixController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comix $comix)
     {
-        //
+        return view("comixes.edit", compact('comix'));
     }
 
     /**
@@ -80,9 +80,15 @@ class ComixController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comix $comix)
     {
-        //
+        $data = $request->all();
+        
+        $comix->update($data);
+
+        return redirect()
+        ->route('comixes.show', $comix->id)
+        ->with('message', "Comic updated succesfully!");
     }
 
     /**

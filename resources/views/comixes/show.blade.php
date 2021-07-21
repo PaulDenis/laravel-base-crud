@@ -21,4 +21,7 @@
     <a href="{{ route("comixes.index")}}" class="btn btn-success">
         Return to menu
     </a>
+    <a href="{{ route("comixes.edit", $comix->id)}}" class="btn btn-primary">
+        Edit
+    </a>
 @endsection
