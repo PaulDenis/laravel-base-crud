@@ -83,7 +83,7 @@ class ComixController extends Controller
     public function update(Request $request, Comix $comix)
     {
         $data = $request->all();
-        
+
         $comix->update($data);
 
         return redirect()
@@ -97,8 +97,11 @@ class ComixController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comix $comix)
     {
-        //
+        $comix->delete();
+        return redirect()
+            ->route('comixes.index')
+            ->with('deleted', "Comic deleted succesfully");
     }
 }

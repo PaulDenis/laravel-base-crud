@@ -18,10 +18,22 @@
         </div>
     </div>
 
-    <a href="{{ route("comixes.index")}}" class="btn btn-success">
-        Return to menu
-    </a>
+    
     <a href="{{ route("comixes.edit", $comix->id)}}" class="btn btn-primary">
         Edit
     </a>
+    <form 
+        class="mt-4"
+        action="{{ route('comixes.destroy', $comix->id) }}" 
+        method="POST"
+        onSubmit = "return confirm('Are you sure you want to delete the comic {{ $comix->title }}?')"
+        >
+            @csrf
+            @method('DELETE')
+            <input type="submit" class="btn btn-danger" value="DELETE">
+        </form>
+
+        <a href="{{ route("comixes.index")}}" class="btn btn-success">
+            Return to menu
+        </a>
 @endsection
